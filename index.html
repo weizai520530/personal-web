@@ -2,90 +2,139 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
-<style>
-body  {
-    background: url("assets/images/IMG_1813.JPG") no-repeat center center fixed;
-    background-size: cover;
-}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body  {
+      background: url("assets/images/IMG_1813.JPG") no-repeat center center fixed;
+      background-size: cover;
+  }
 
-.title {
-  font-size: 100px;
-  color: white;
-  font-family: 'Yellowtail', cursive;
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-  text-align: center;
-  animation-name: topFadeOut;
-  animation-duration: 5s;
-  position: absolute;
-  left: 2.5rem;
-  top: 5rem;
-}
-
-/**
-.paragraph {
-  font-size: 20px;
-  color: white;
-  font-family: 'Yellowtail', cursive;
-}
-**/
-
-.animation-box {
-  width: 75%;
-  height: 27.5rem;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-}
-
-.animation-container {
-  width: 1000rem;
-  height: 30rem;
-}
-
-@keyframes topFadeOut {
-  0% {
+  .title {
+    font-size: 200px;
+    color: white;
+    font-family: 'Yellowtail', cursive;
+    width: 50%;
+    padding: 10px;
+    animation-name: topFadeOut;
+    animation-duration: 2s;
     position: absolute;
-    top: -3rem;
-    opacity: 0;
-  }
-  75% {
-    position: absolute;
-    top: 50%;
-    opacity: 1;
+    left: 10rem;
+    top: 5rem;
   }
 
-  100% {
-    opacity: 1;
+  /**
+  .paragraph {
+    font-size: 20px;
+    color: white;
+    font-family: 'Yellowtail', cursive;
   }
-}
+  **/
 
-/**
-.first-text {
-  font-size: 4.4rem;
-  position: absolute;
-  left: 2.5rem;
-  top: 5rem;
-  opacity: 0;
-  animation-name: topFadeOut;
-  animation-duration: 5s;
-  color: white;
-}
-**/
+  .animation-box {
+    width: 100rem;
+    height: 100rem;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    left: auto;
+  }
+
+  .animation-container {
+    width: 100rem;
+    height: 10rem;
+  }
+
+  @keyframes topFadeOut {
+    0% {
+      position: absolute;
+      top: -3rem;
+      opacity: 0;
+    }
+    75% {
+      position: absolute;
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .gallery-container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    left: 5rem
+  }
 
 
-</style>
+  .intro {
+    font-size: 3rem;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  </style>
 </head>
 <body>
 
-<!--<h1 class="title">Bowei Liu</h1> -->
-
-<!--<p class="paragraph">Welcome World</p> -->
 
 <section class="animation-box">
   <div class="title">Bowei Liu</div>
 </section>
 
+<p class="intro" >- Student, Gamer, Photographer</p>
+
+<div class="page-break"></div>
+
+<div class="gallery-container">
+  <h2>Gallery</h2>
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="assets/images/IMG_1213.jpg" alt="Pic 1" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="assets/images/IMG_1614.jpg" alt="Pic 2" style="width:100%;">
+      </div>
+
+      <div class="item">
+        <img src="assets/images/IMG_2814.jpg" alt="Pic 3" style="width:100%;">
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
 </body>
+
+
+<!-- start of page 2 -->
+
+
+
 </html>
