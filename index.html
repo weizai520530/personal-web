@@ -5,8 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="pse/css/reset.css">
+	<link rel="stylesheet" href="pse/css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="pse/js/modernizr.js"></script>
   <style>
   body  {
       background: url("assets/images/IMG_1813.JPG") no-repeat center center fixed;
@@ -68,22 +71,17 @@
   }
 
 
-
-
   </style>
 </head>
-<body>
 
+
+<body data-hijacking="off" data-animation="fixed">
 
 <section class="animation-box-title">
   <div class="title">Bowei Liu</div>
 </section>
 
-
-
-<div class="page-break"></div>
-
-<div class="gallery-container-nature">
+<section class="gallery-container-nature">
   <h style="font-size:40px; color:white; font-family: 'Yellowtail', cursive;">Gallery</h>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -126,7 +124,12 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-</div>
+</section>
+
+<script src="pse/js/jquery-2.1.4.js"></script>
+<script src="pse/js/velocity.min.js"></script>
+<script src="pse/js/velocity.ui.min.js"></script>
+<script src="pse/js/main.js"></script> <!-- Resource jQuery -->
 
 </body>
 
