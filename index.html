@@ -1,77 +1,73 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="pse/css/reset.css">
-	<link rel="stylesheet" href="pse/css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="pse/js/modernizr.js"></script>
-  <style>
-  body  {
-      background: url("assets/images/IMG_1813.JPG") no-repeat center center fixed;
-      background-size: cover;
-  }
-
-  .title {
-    font-size: 200px;
-    color: white;
-    font-family: 'Yellowtail', cursive;
-    padding: 10px;
-    animation-name: topFadeIn;
-    animation-duration: 2s;
-    position: absolute;
-    left: 10rem;
-    top: 5rem;
-  }
-
-
-  /**
-  .paragraph {
-    font-size: 20px;
-    color: white;
-    font-family: 'Yellowtail', cursive;
-  }
-  **/
-
-  .animation-box-title {
-    width: 100rem;
-    height: 80rem;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-    left: auto;
-  }
-
-
-  @keyframes topFadeIn {
-    0% {
-      position: absolute;
-      top: -3rem;
-      opacity: 0;
-    }
-    75% {
-      position: absolute;
-      opacity: 1;
+    <link href="https://fonts.googleapis.com/css?family=Yellowtail" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="pse/css/reset.css">
+  	<link rel="stylesheet" href="pse/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="pse/js/modernizr.js"></script>
+    <style>
+    body  {
+        background: url("assets/images/IMG_1813.JPG") no-repeat center center fixed;
+        background-size: cover;
     }
 
-    100% {
-      opacity: 1;
+    .hidden {
+        display: none;
     }
-  }
+
+    .title {
+        font-size: 200px;
+        color: white;
+        font-family: 'Yellowtail', cursive;
+        padding: 10px;
+        animation-name: topFadeIn;
+        animation-duration: 2s;
+        position: absolute;
+        left: 10rem;
+        top: 5rem;
+    }
 
 
-  .gallery-container {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
+    .animation-box-title {
+        width: 100rem;
+        height: 50rem;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        left: auto;
+    }
 
 
-  </style>
+    @keyframes topFadeIn {
+      0% {
+        position: absolute;
+        top: -3rem;
+        opacity: 0;
+      }
+      75% {
+        position: absolute;
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+
+    .gallery-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+
+    </style>
 </head>
 
 
@@ -81,7 +77,13 @@
   <div class="title">Bowei Liu</div>
 </section>
 
-<section class="gallery-container-nature">
+<section class="basic-intro">
+  <p class="basic-intro-p paragraphs">Welcome to Bowei's personal website</p>
+
+<section class="student hidden">
+  <p class="student-intro paragraphs">I am a second year student of University of Toronto,completing honor B.S.C degree</p>
+
+<section class="gallery-container-nature hidden">
   <h style="font-size:40px; color:white; font-family: 'Yellowtail', cursive;">Gallery</h>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
@@ -106,9 +108,11 @@
       <div class="item">
         <img src="assets/images/IMG_1129.JPG" alt="Yunnan Spring water" style="width:100%;">
       </div>
+
       <div class="item">
         <img src="assets/images/IMG_1514.JPG" alt="Yunnan mountain village" style="width:100%;">
       </div>
+
       <div class="item">
         <img src="assets/images/IMG_1355.JPG" alt="DEER" style="width:100%;">
       </div>
@@ -125,6 +129,8 @@
     </a>
   </div>
 </section>
+
+<section class="text box" style="height:1000px">
 
 <script src="pse/js/jquery-2.1.4.js"></script>
 <script src="pse/js/velocity.min.js"></script>
