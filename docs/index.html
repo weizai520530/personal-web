@@ -160,6 +160,24 @@
         100% { opacity: 1; transform: translateY(0); }
     }
 
+    .subtitle-link {
+        background: linear-gradient(
+            110deg,
+            rgba(255,255,255,0.78)  0%,
+            rgba(218,238,255,0.58) 50%,
+            rgba(255,255,255,0.72) 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+        transition: border-color 0.2s ease;
+    }
+    .subtitle-link:hover {
+        border-bottom-color: rgba(255, 255, 255, 0.7);
+    }
+
     /* Mobile */
     @media (max-width: 767px) {
         .nav { font-size: 11px; }
@@ -316,7 +334,7 @@
     <div class="title">Bowei Liu</div>
   </section>
   <div class="basic-intro">
-    <div class="basic-intro-p paragraphs">Finance · Gaming · Life</div>
+    <div class="basic-intro-p paragraphs"><a href="finance/" class="subtitle-link">Finance</a> · Gaming · Life</div>
   </div>
 </div>
 
