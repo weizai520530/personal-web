@@ -332,14 +332,62 @@
 </main>
 
 <script>
+const PORTFOLIO_DATA = {
+  "meta": {
+    "lastUpdated": "2026-04-27",
+    "currency": "USD",
+    "portfolioName": "Bowei's Portfolio"
+  },
+  "summary": {
+    "totalInvested": 25990,
+    "currentValue": 20730.00,
+    "dayChange": 1153,
+    "dayChangePct": 4.15
+  },
+  "holdings": [
+    {
+      "symbol": "SOXS",
+      "name": "SOXX 3X Bear",
+      "type": "ETF",
+      "sector": "Technology",
+      "shares": 900,
+      "avgCost": 20.19,
+      "currentPrice": 14.19,
+      "dayChangePct": 4.96
+    },
+    {
+      "symbol": "RKLX",
+      "name": "RKLB 2X Bull",
+      "type": "ETF",
+      "sector": "Technology",
+      "shares": 200,
+      "avgCost": 38.92,
+      "currentPrice": 39.59,
+      "dayChangePct": 5.77
+    }
+  ],
+  "performance": [
+    { "date": "May '25",  "value": 38200 },
+    { "date": "Jun '25",  "value": 37600 },
+    { "date": "Jul '25",  "value": 39800 },
+    { "date": "Aug '25",  "value": 41200 },
+    { "date": "Sep '25",  "value": 40100 },
+    { "date": "Oct '25",  "value": 42800 },
+    { "date": "Nov '25",  "value": 44300 },
+    { "date": "Dec '25",  "value": 43500 },
+    { "date": "Jan '26",  "value": 45100 },
+    { "date": "Feb '26",  "value": 44700 },
+    { "date": "Mar '26",  "value": 46200 },
+    { "date": "Apr '26",  "value": 47380 }
+  ]
+};
+
 const fmt = (n, dec = 2) => n.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
 const fmtDollar = n => (n >= 0 ? '+$' : '-$') + fmt(Math.abs(n));
 const fmtPct = n => (n >= 0 ? '+' : '') + fmt(n) + '%';
 const cls = n => n >= 0 ? 'up' : 'down';
 
-fetch('data.json')
-  .then(r => r.json())
-  .then(data => {
+(function(data) {
     const { meta, summary, holdings, performance } = data;
 
     // Computed per holding
@@ -561,8 +609,7 @@ fetch('data.json')
             <td>${weight}%</td>
           </tr>`;
       });
-  })
-  .catch(err => console.error('Failed to load data.json:', err));
+})(PORTFOLIO_DATA);
 </script>
 </body>
 </html>
