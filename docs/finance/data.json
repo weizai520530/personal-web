@@ -5,92 +5,33 @@
     "portfolioName": "Bowei's Portfolio"
   },
   "summary": {
-    "totalInvested": 42500.00,
-    "currentValue": 47380.50,
-    "dayChange": 312.40,
-    "dayChangePct": 0.66
+    "totalInvested": 25990,
+    "currentValue": 20730.00,
+    "dayChange": 1153,
+    "dayChangePct": 4.15
   },
   "holdings": [
     {
-      "symbol": "NVDA",
-      "name": "NVIDIA Corporation",
-      "type": "Stock",
-      "sector": "Technology",
-      "shares": 30,
-      "avgCost": 480.00,
-      "currentPrice": 876.40,
-      "dayChangePct": 2.14
-    },
-    {
-      "symbol": "AAPL",
-      "name": "Apple Inc.",
-      "type": "Stock",
-      "sector": "Technology",
-      "shares": 40,
-      "avgCost": 155.20,
-      "currentPrice": 172.80,
-      "dayChangePct": 0.83
-    },
-    {
-      "symbol": "MSFT",
-      "name": "Microsoft Corporation",
-      "type": "Stock",
-      "sector": "Technology",
-      "shares": 15,
-      "avgCost": 310.00,
-      "currentPrice": 415.60,
-      "dayChangePct": -0.42
-    },
-    {
-      "symbol": "VOO",
-      "name": "Vanguard S&P 500 ETF",
-      "type": "ETF",
-      "sector": "Broad Market",
-      "shares": 20,
-      "avgCost": 390.00,
-      "currentPrice": 498.20,
-      "dayChangePct": 0.51
-    },
-    {
-      "symbol": "QQQ",
-      "name": "Invesco QQQ Trust",
+      "symbol": "SOXS",
+      "name": "SOXX 3X Bear",
       "type": "ETF",
       "sector": "Technology",
-      "shares": 12,
-      "avgCost": 350.00,
-      "currentPrice": 432.75,
-      "dayChangePct": 1.02
+      "shares": 900,
+      "avgCost": 20.19,
+      "currentPrice": 14.19,
+      "dayChangePct": 4.96
     },
     {
-      "symbol": "TSLA",
-      "name": "Tesla Inc.",
-      "type": "Stock",
-      "sector": "Consumer Discretionary",
-      "shares": 20,
-      "avgCost": 240.00,
-      "currentPrice": 175.30,
-      "dayChangePct": -1.87
-    },
-    {
-      "symbol": "AMZN",
-      "name": "Amazon.com Inc.",
-      "type": "Stock",
-      "sector": "Consumer Discretionary",
-      "shares": 18,
-      "avgCost": 135.00,
-      "currentPrice": 185.90,
-      "dayChangePct": 0.39
-    },
-    {
-      "symbol": "VTI",
-      "name": "Vanguard Total Stock Market ETF",
+      "symbol": "RKLX",
+      "name": "RKLB 2X Bull",
       "type": "ETF",
-      "sector": "Broad Market",
-      "shares": 25,
-      "avgCost": 200.00,
-      "currentPrice": 238.40,
-      "dayChangePct": 0.47
-    }
+      "sector": "Technology",
+      "shares": 200,
+      "avgCost": 38.92,
+      "currentPrice": 39.59,
+      "dayChangePct": 5.77
+    },
+
   ],
   "performance": [
     { "date": "May '25",  "value": 38200 },
