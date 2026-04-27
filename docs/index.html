@@ -10,7 +10,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="pse/js/modernizr.js"></script>
+    <!-- Run before first paint: marks html so CSS hides overlay immediately if session already seen -->
+    <script>if(sessionStorage.getItem('wo_seen'))document.documentElement.setAttribute('data-wo-skip','1')</script>
     <style>
+    /* Hide overlay instantly on repeat visits before any paint */
+    [data-wo-skip='1'] #welcome-overlay { display: none !important; }
 
     @viewport {
         width: device-width;
@@ -157,11 +161,140 @@
         }
     }
 
+    /* ===== Welcome Overlay ===== */
+    #welcome-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #04080f;
+        overflow: hidden;
+        animation: wo-fade-out 0.8s cubic-bezier(0.4, 0, 1, 1) 2.4s forwards;
+    }
+
+    /* Aurora orbs — layered radial gradients that drift slowly */
+    .wo-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        pointer-events: none;
+    }
+    .wo-orb-1 {
+        width: 80vmax; height: 80vmax;
+        bottom: -25vmax; left: -18vmax;
+        background: radial-gradient(circle, rgba(0, 78, 210, 0.6) 0%, transparent 68%);
+        animation: wo-drift-1 9s ease-in-out infinite alternate;
+    }
+    .wo-orb-2 {
+        width: 60vmax; height: 60vmax;
+        top: -18vmax; right: -12vmax;
+        background: radial-gradient(circle, rgba(72, 14, 200, 0.5) 0%, transparent 68%);
+        animation: wo-drift-2 11s ease-in-out infinite alternate;
+    }
+    .wo-orb-3 {
+        width: 44vmax; height: 44vmax;
+        top: 30%; left: 38%;
+        background: radial-gradient(circle, rgba(0, 160, 210, 0.22) 0%, transparent 65%);
+        animation: wo-drift-3 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes wo-drift-1 {
+        from { transform: translate(0, 0) scale(1); }
+        to   { transform: translate(4vw, -5vh) scale(1.09); }
+    }
+    @keyframes wo-drift-2 {
+        from { transform: translate(0, 0) scale(1); }
+        to   { transform: translate(-4vw, 4vh) scale(1.06); }
+    }
+    @keyframes wo-drift-3 {
+        from { transform: translate(0, 0) scale(1); }
+        to   { transform: translate(3vw, -3vh) scale(1.12); }
+    }
+
+    /* Very subtle grain layer */
+    #welcome-overlay::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.012) 2px,
+                rgba(255,255,255,0.012) 4px
+            );
+        pointer-events: none;
+    }
+
+    .wo-content {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.2rem;
+    }
+
+    .wo-text {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
+        font-size: clamp(52px, 10vw, 100px);
+        font-weight: 200;
+        color: #ffffff;
+        letter-spacing: 0.12em;
+        animation: wo-text-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    }
+
+    #wo-skip {
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 20px;
+        padding: 7px 22px;
+        cursor: pointer;
+        animation: wo-text-in 0.8s ease 1.2s both;
+        transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+    }
+    #wo-skip:hover {
+        background: rgba(255, 255, 255, 0.18);
+        color: rgba(255, 255, 255, 0.9);
+        border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    @keyframes wo-text-in {
+        from { opacity: 0; transform: translateY(22px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes wo-fade-out {
+        from { opacity: 1; }
+        to   { opacity: 0; pointer-events: none; }
+    }
+
     </style>
 </head>
 
 
 <body data-hijacking="off" data-animation="fixed">
+
+<div id="welcome-overlay" role="dialog" aria-modal="true" aria-label="Welcome screen">
+    <div class="wo-orb wo-orb-1"></div>
+    <div class="wo-orb wo-orb-2"></div>
+    <div class="wo-orb wo-orb-3"></div>
+    <div class="wo-content">
+        <p class="wo-text">Welcome</p>
+        <button id="wo-skip" aria-label="Skip intro">Skip</button>
+    </div>
+</div>
 
 <nav class="nav">
   <a class="cn-site" href="http://baidu.com" style="color: white;">刘博为</a>
@@ -232,6 +365,34 @@
 <script src="pse/js/velocity.min.js"></script>
 <script src="pse/js/velocity.ui.min.js"></script>
 <script src="pse/js/main.js"></script> <!-- Resource jQuery -->
+
+<script>
+(function () {
+    var overlay = document.getElementById('welcome-overlay');
+    if (!overlay) return;
+
+    function dismiss(fast) {
+        var duration = fast ? 0.45 : 0.8;
+        overlay.style.animation = 'wo-fade-out ' + duration + 's cubic-bezier(0.4,0,1,1) forwards';
+        setTimeout(function () {
+            overlay.remove();
+        }, duration * 1000);
+        sessionStorage.setItem('wo_seen', '1');
+    }
+
+    document.getElementById('wo-skip').addEventListener('click', function () {
+        dismiss(true);
+    });
+
+    /* Remove element after CSS auto-fade-out finishes (fires on the overlay's own animation) */
+    overlay.addEventListener('animationend', function (e) {
+        if (e.animationName === 'wo-fade-out') {
+            overlay.remove();
+            sessionStorage.setItem('wo_seen', '1');
+        }
+    });
+}());
+</script>
 
 </body>
 
