@@ -1,6 +1,6 @@
 const PORTFOLIO_DATA = {
   meta: {
-    lastUpdated: "2026-04-27",
+    lastUpdated: "2026-04-30",
     currency: "USD",
     portfolioName: "Bowei's Portfolio"
   },
